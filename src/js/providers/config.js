@@ -32,7 +32,7 @@
                 move: true,
                 copy: true,
                 edit: true,
-                changePermissions: true,
+                changePermissions: false,
                 compress: true,
                 compressChooseName: true,
                 extract: true,
