@@ -256,15 +256,17 @@
                 items: items,
                 toFilename: toFilename
             };
+            /*
             var url = [apiUrl, $httpParamSerializer(data)].join('?');
 
             if (!downloadByAjax || forceNewWindow || !$window.saveAs) {
                 !$window.saveAs && $window.console.log('Your browser dont support ajax download, downloading by default');
                 return !!$window.open(url, '_blank', '');
             }
+            */
 
             self.inprocess = true;
-            $http.get(apiUrl).then(function(response) {
+            $http.post(apiUrl, data).then(function(response) {
                 var bin = new $window.Blob([response.data]);
                 deferred.resolve(response.data);
                 $window.saveAs(bin, toFilename);
