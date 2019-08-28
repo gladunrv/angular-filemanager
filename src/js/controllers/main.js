@@ -197,9 +197,11 @@
 
         $scope.download = function() {
             var item = $scope.singleSelection();
+            /* Убрать проверку для папок
             if ($scope.selectionHas('dir')) {
                 return;
             }
+            */
             if (item) {
                 return $scope.apiMiddleware.download(item);
             }
