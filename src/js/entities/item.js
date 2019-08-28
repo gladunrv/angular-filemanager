@@ -15,6 +15,10 @@
                 fullPath: function() {
                     var path = this.path.filter(Boolean);
                     return ('/' + path.join('/') + '/' + this.name).replace(/\/\//, '/');
+                },
+                previewPath: function() {
+                    var path = this.path.filter(Boolean);
+                    return 'bridges/php/handler.php?action=preview&path=' + ('/' + path.join('/') + '/' + this.name).replace(/\/\//, '/');
                 }
             };
 
@@ -49,6 +53,10 @@
 
         Item.prototype.isImage = function() {
             return fileManagerConfig.isImageFilePattern.test(this.model.name);
+        };
+
+        Item.prototype.isVideo = function() {
+            return fileManagerConfig.isVideoFilePattern.test(this.model.name);
         };
 
         Item.prototype.isCompressible = function() {

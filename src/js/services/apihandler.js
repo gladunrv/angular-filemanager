@@ -129,7 +129,7 @@
             self.error = '';
 
             var data = {
-                destination: destination
+                destination: encodeURIComponent(destination)
             };
 
             for (var i = 0; i < files.length; i++) {
