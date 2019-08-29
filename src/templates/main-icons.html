@@ -5,9 +5,9 @@
                 <div class="item-icon">
            <i class="glyphicon glyphicon-folder-open" ng-if="item.model.type === 'dir'"></i>
            <i class="glyphicon glyphicon-file" data-ext="{{ item.model.name | fileExtension }}"
-              ng-if="item.model.type === 'file' && !item.isImage()"
+              ng-if="item.model.type === 'file' && !item.isImage() && !item.isVideo()"
               ng-class="{'item-extension': config.showExtensionIcons}"></i>
-           <img ng-if="item.isImage() || item.isVideo()" ng-src="{{item.model.previewPath()}}" alt="">
+           <img class="glyphicon glyphicon-file" data-ext="{{ item.model.name | fileExtension }}" ng-class="{'item-extension': config.showExtensionIcons}" ng-if="item.isImage() || item.isVideo()" ng-style="{'vertical-align': 'baseline','height': '41px'}" ng-src="{{item.model.previewPath()}}" onerror="this.style.textColor='red'" alt="">
                 </div>
                 {{item.model.name | strLimit : 11 }}
             </a>
