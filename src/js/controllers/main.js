@@ -173,7 +173,11 @@
         };
 
         $scope.modalWithPathSelector = function(id) {
-            $rootScope.selectedModalPath = $scope.fileNavigator.currentPath;
+            if( id === 'copy' || id === 'move'){
+                $scope.openNavigator([]);
+            } else {
+                $rootScope.selectedModalPath = $scope.fileNavigator.currentPath;
+            }
             return $scope.modal(id);
         };
 
@@ -205,7 +209,11 @@
             if (item) {
                 return $scope.apiMiddleware.download(item);
             }
-            return $scope.apiMiddleware.downloadMultiple($scope.temps);
+
+            $scope.modal('loader');
+            return $scope.apiMiddleware.downloadMultiple($scope.temps).then(function(){
+                $scope.modal('loader', true);
+            });
         };
 
         $scope.copy = function() {
