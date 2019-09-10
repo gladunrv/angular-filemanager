@@ -28,15 +28,28 @@
         </button>
         <h4 class="modal-title">{{"preview" | translate}}</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="min-height: {{($parent.itemPreviewWidth + 15)}}px;">
         <div class="text-center">
-          <img id="imagepreview-target" class="preview" alt="{{singleSelection().model.name}}" ng-class="{'loading': apiMiddleware.apiHandler.inprocess}">
+
+          <img id="imagepreview-target" class="preview" alt="{{singleSelection().model.name}}" ng-class="{'loading': apiMiddleware.apiHandler.inprocess}" style="transform: rotate({{$parent.itemPreviewRotate}}deg) translateX({{$parent.itemPreviewTranslateX}}px);">
           <span class="label label-warning" ng-show="apiMiddleware.apiHandler.inprocess">{{'loading' | translate}} ...</span>
         </div>
         <div ng-include data-src="'error-bar'" class="clearfix"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-disabled="apiMiddleware.apiHandler.inprocess">{{"close" | translate}}</button>
+        <div class="pull-left">
+          <button type="button" class="btn btn-default" ng-click="imagePreviewRotate(-90)">
+            <i class="glyphicon glyphicon glyphicon-repeat icon-flipped"></i>
+            {{"rotate" | translate}} 
+          </button> 
+          <button type="button" class="btn btn-default" ng-click="imagePreviewRotate(90)">
+            {{"rotate" | translate}}
+            <i class="glyphicon glyphicon glyphicon-repeat"></i>
+          </button> 
+        </div>
+        <div class="pull-right">
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-disabled="apiMiddleware.apiHandler.inprocess">{{"close" | translate}}</button>
+        </div>
       </div>
     </div>
   </div>

@@ -31,7 +31,7 @@
                 rename: true,
                 move: true,
                 copy: true,
-                edit: true,
+                edit: false,
                 changePermissions: false,
                 compress: true,
                 compressChooseName: true,

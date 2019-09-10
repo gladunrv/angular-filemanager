@@ -19,6 +19,10 @@
         $scope.viewTemplate = $storage.getItem('viewTemplate') || 'main-icons.html';
         $scope.fileList = [];
         $scope.temps = [];
+        $scope.itemPreviewRotate = 0;
+        $scope.itemPreviewWidth = 0;
+        $scope.itemPreviewHeight = 0;
+        $scope.itemPreviewTranslateX = 0;
 
         $scope.$watch('temps', function() {
             if ($scope.singleSelection()) {
@@ -365,6 +369,23 @@
                 return param ===  item.split('=')[0];
             });
             return found[0] && found[0].split('=')[1] || undefined;
+        };
+
+        $scope.imagePreviewRotate = function(param) {
+            var element = angular.element('#imagepreview-target')[0];
+            $scope.itemPreviewRotate += param;
+            if ($scope.itemPreviewRotate % 180) {
+                $scope.itemPreviewWidth = element.width;
+                $scope.itemPreviewHeight = element.height;
+                $scope.itemPreviewTranslateX  = ($scope.itemPreviewWidth - $scope.itemPreviewHeight) / 2;
+                if ($scope.itemPreviewRotate % 360 === 270 || $scope.itemPreviewRotate % 360 === -90 ) {
+                    $scope.itemPreviewTranslateX = -$scope.itemPreviewTranslateX;
+                }
+            } else {
+                $scope.itemPreviewWidth = element.height;
+                $scope.itemPreviewHeight = element.width;
+                $scope.itemPreviewTranslateX = 0;
+            }
         };
 
         $scope.changeLanguage(getQueryParam('lang'));

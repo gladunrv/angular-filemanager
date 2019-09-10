@@ -5,7 +5,7 @@ body {
 
 *,
 *:focus {
-  outline: 0!important;
+  outline: 0 !important;
 }
 
 .navbar {
@@ -76,14 +76,12 @@ textarea.code {
   margin-left: -20px;
 }
 
-
 .nav-sidebar > li > a {
   color: #7a7a7a;
   padding: 7px 0 7px 16px;
 }
 
-
-.nav-sidebar> li > a:hover, 
+.nav-sidebar> li > a:hover,
 .nav-sidebar> li > a:focus {
   background: none;
   color: #1378b9;
@@ -92,7 +90,6 @@ textarea.code {
 .nav-sidebar > li.active > a {
   color: #2196F3;
 }
-
 
 .main {
   padding: 0;
@@ -170,7 +167,7 @@ textarea.code {
 .iconset .thumbnail.selected,
 .table-files .selected td,
 .table-files .selected td a {
-  color:#fff;
+  color: #fff;
 }
 
 .iconset .thumbnail .item-icon {
@@ -224,7 +221,7 @@ textarea.code {
 .dropdown-menu.dropdown-right-click {
   display: block;
   position: static;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
 }
 
 .dropdown-menu.dropdown-right-click .divider {
@@ -276,9 +273,12 @@ table th > a:focus {
   content: '\25b2';
 }
 
-[ng\:cloak], [ng-cloak],
-[data-ng-cloak], [x-ng-cloak],
-.ng-cloak, .x-ng-cloak {
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
   display: none !important;
 }
 
@@ -320,14 +320,17 @@ table th > a:focus {
   overflow-y: auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width:768px) {
   .main {
     padding-right: 0;
     padding-left: 0;
   }
 
   /* The view should fill all available vertical space */
-  angular-filemanager > div,.row,.main,.sidebar {
+  angular-filemanager > div,
+  .row,
+  .main,
+  .sidebar {
     height: 100%;
   }
 
@@ -340,6 +343,7 @@ table th > a:focus {
   .sidebar {
     display: block;
   }
+
 }
 
 .selected-file-details {
@@ -347,7 +351,7 @@ table th > a:focus {
 }
 
 .item-extension::after {
-  font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   content: attr(data-ext);
   left: 4px;
   position: absolute;
@@ -401,7 +405,7 @@ table th > a:focus {
 }
 
 .breadcrumb {
-  background: none; 
+  background: none;
   padding: 0;
   font-size: 17px;
   margin: 12px 0;
@@ -443,4 +447,11 @@ table th > a:focus {
   width: 18px;
   height: 18px;
   line-height: 100%;
+}
+
+.icon-flipped {
+  transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
 }
