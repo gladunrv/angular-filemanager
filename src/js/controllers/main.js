@@ -141,14 +141,19 @@
                 }
                 return $scope.apiMiddleware.download(item, true);
             }
-
+            /*
             if (item.isEditable()) {
                 return $scope.openEditItem(item);
             }
+            */
         };
 
         $scope.openImagePreview = function() {
             var item = $scope.singleSelection();
+            $scope.itemPreviewRotate = 0;
+            $scope.itemPreviewWidth = 0;
+            $scope.itemPreviewHeight = 0;
+            $scope.itemPreviewTranslateX = 0;
             $scope.apiMiddleware.apiHandler.inprocess = true;
             $scope.modal('imagepreview', null, true)
                 .find('#imagepreview-target')
